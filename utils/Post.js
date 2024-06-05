@@ -26,10 +26,10 @@ const readPosts = (cf) => {
         .catch(err => console.error(err));
 }
 
-const readPostById = (id, cf) => {
+const readPostBySlug = (slug, cf) => {
     prisma.post.findUnique({
         where: {
-            id: id
+            slug: slug
         }
     })
         .then(post => cf(post))
@@ -40,6 +40,6 @@ module.exports = {
     createPost,
     updatePost,
     deletePost,
-    readPostById,
+    readPostBySlug,
     readPosts
 }
