@@ -71,18 +71,19 @@ const readPublishedPosts = (cf) => {
         .catch(err => console.error(err));
 }
 
-const readPostsWhereString = (string, cf) => {
+const findPostsWithString = (string, cf) => {
     prisma.post.findMany({
-        where: {
-
-        },
-        include: {
-            tags: {
-                select: { name: true }
-            },
+        where: { content: { contains: string } }, include: {
             category: {
-                select: { name: true }
-            }
+                select: {
+                    name: true
+                }
+            },
+            tags: {
+                select: {
+                    name: true
+                }
+            },
         }
     })
         .then(posts => cf(posts))
@@ -95,5 +96,6 @@ module.exports = {
     deletePost,
     readPostBySlug,
     readPosts,
-    readPublishedPosts
+    readPublishedPosts,
+    findPostsWithString
 }

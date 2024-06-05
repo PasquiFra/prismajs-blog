@@ -4,7 +4,8 @@ const {
     deletePost,
     readPostBySlug,
     readPosts,
-    readPublishedPosts
+    readPublishedPosts,
+    findPostsWithString
 } = require('./utils/Post.js');
 
 const {
@@ -47,15 +48,22 @@ const {
 //readCategories(categories => console.log(categories))
 
 //! creazione Post + Categorie + Tags
-//?TODO: NOT WORKING
-createPost({
-    title: "Ethereum vs Cardano",
-    slug: "ethereum-vs-cardano",
-    content: "Both Ethereum and Cardano are blockchain platforms that support smart contracts and dApps, but they have different approaches and features.",
-    image: "eth-ada.jpg",
-    published: false,
-    tags: {
-        connect: [{ id: 1 }]
-    },
-    categoryId: 1
-}, (post) => console.log(post))
+// createPost({
+//     title: "Ethereum vs Cardano",
+//     slug: "ethereum-vs-cardano",
+//     content: "Both Ethereum and Cardano are blockchain platforms that support smart contracts and dApps, but they have different approaches and features.",
+//     image: "eth-ada.jpg",
+//     published: false,
+//     tags: {
+//         connect: [{ id: 1 }]
+//     },
+//     categoryId: 1
+// }, (post) => console.log(post))
+
+//! trovo tutti i post pubblicati
+//readPublishedPosts((post) => console.log(post))
+
+//! trovo tutti i post che contengono una stringa
+//findPostsWithString("Cardano", (post) => console.log(post))
+
+
