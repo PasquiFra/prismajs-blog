@@ -6,7 +6,7 @@ const createTags = (tags, callbackFunction) => {
     prisma.tag.createMany({
         data: tags.map(tag => ({ name: tag }))
     })
-        .then(tags => callbackFunction(tags))
+        .then(tags => callbackFunction(tags)) // Restituisce un count
         .catch(err => console.error(err));
 }
 
