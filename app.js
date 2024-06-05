@@ -54,11 +54,8 @@ createPost({
     content: "Both Ethereum and Cardano are blockchain platforms that support smart contracts and dApps, but they have different approaches and features.",
     image: "eth-ada.jpg",
     published: false,
-    tags: [
-        { name: "Ethereum" },
-        { name: "Cardano" },
-        { name: "Cryptocurrency Comparison" }
-    ],
+    tags: {
+        connect: [{ id: 1 }]
+    },
     categoryId: 1
 }, (post) => console.log(post))
-

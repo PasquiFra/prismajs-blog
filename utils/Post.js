@@ -3,39 +3,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 const createPost = (data, callbackFunction) => {
-    const { title, slug, content, image, published, tags, categoryId } = data;
-    prisma.post.create({
-        data: {
-            title,
-            slug,
-            content,
-            image,
-            published,
-            tags: {
-                create: tags.map(tag => ({
-                    tag: {
-                        connect: {
-                            create: { name: tag.name },
-                            where: { name: tag.name }
-                        }
-                    }
-                }))
-            },
-            categoryId,
-        },
-        include: {
-            tags: {
-                include: {
-                    tag: true
-                }
-            },
-            category: {
-                include: {
-                    category: true
-                }
-            }
-        }
-    })
+    prisma.post.create({ data })
         .then(post => callbackFunction(post))
         .catch(err => console.error(err));
 }
@@ -89,6 +57,24 @@ const readPublishedPosts = (cf) => {
     prisma.post.findMany({
         where: {
             published: true
+        },
+        include: {
+            tags: {
+                select: { name: true }
+            },
+            category: {
+                select: { name: true }
+            }
+        }
+    })
+        .then(posts => cf(posts))
+        .catch(err => console.error(err));
+}
+
+const readPostsWhereString = (string, cf) => {
+    prisma.post.findMany({
+        where: {
+
         },
         include: {
             tags: {
