@@ -3,7 +3,8 @@ const {
     updatePost,
     deletePost,
     readPostBySlug,
-    readPosts
+    readPosts,
+    readPublishedPosts
 } = require('./utils/Post.js');
 
 const {
@@ -29,7 +30,7 @@ const {
 //  readPostBySlug("introduction-to-bitcoin", (post) => console.log(post))
 
 //! read Posts
-// readPosts((post) => console.log(post))
+//readPosts((post) => console.log(post))
 
 //! creazione Tags
 // createTags(["Bitcoin", "Cryptocurrency", "Digital Currency", "Mining",
@@ -44,4 +45,20 @@ const {
 
 //! read Categories
 //readCategories(categories => console.log(categories))
+
+//! creazione Post + Categorie + Tags
+//?TODO: NOT WORKING
+createPost({
+    title: "Ethereum vs Cardano",
+    slug: "ethereum-vs-cardano",
+    content: "Both Ethereum and Cardano are blockchain platforms that support smart contracts and dApps, but they have different approaches and features.",
+    image: "eth-ada.jpg",
+    published: false,
+    tags: [
+        { name: "Ethereum" },
+        { name: "Cardano" },
+        { name: "Cryptocurrency Comparison" }
+    ],
+    categoryId: 1
+}, (post) => console.log(post))
 
