@@ -18,13 +18,17 @@ const {
     readCategories
 } = require('./utils/Category.js');
 
-//! creazione Post
+//! creazione Post + Categorie + Tags
 // createPost({
-//     title: "Introduction to Bitcoin",
-//     slug: "introduction-to-bitcoin",
-//     content: "Bitcoin is a decentralized digital currency that you can buy, sell, and exchange directly, without an intermediary like a bank.",
-//     image: "bitcoin.png",
-//     published: true
+//     title: "Ethereum vs Cardano",
+//     slug: "ethereum-vs-cardano",
+//     content: "Both Ethereum and Cardano are blockchain platforms that support smart contracts and dApps, but they have different approaches and features.",
+//     image: "eth-ada.jpg",
+//     published: false,
+//     tags: {
+//         connect: [{ id: 1 }]
+//     },
+//     categoryId: 1
 // }, (post) => console.log(post))
 
 //! read PostBySlug
@@ -46,19 +50,6 @@ const {
 
 //! read Categories
 //readCategories(categories => console.log(categories))
-
-//! creazione Post + Categorie + Tags
-// createPost({
-//     title: "Ethereum vs Cardano",
-//     slug: "ethereum-vs-cardano",
-//     content: "Both Ethereum and Cardano are blockchain platforms that support smart contracts and dApps, but they have different approaches and features.",
-//     image: "eth-ada.jpg",
-//     published: false,
-//     tags: {
-//         connect: [{ id: 1 }]
-//     },
-//     categoryId: 1
-// }, (post) => console.log(post))
 
 //! trovo tutti i post pubblicati
 //readPublishedPosts((post) => console.log(post))
