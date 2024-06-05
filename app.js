@@ -43,4 +43,5 @@ const {
 //createCategories(["Crypto", "Finance", "Economics", "Commodity"], categories => console.log(categories))
 
 //! read Categories
-readCategories(categories => console.log(categories))
+//readCategories(categories => console.log(categories))
+
