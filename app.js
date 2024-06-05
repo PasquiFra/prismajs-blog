@@ -36,5 +36,11 @@ const {
 //     "Blockchain", "Ethereum",
 //     "Cryptocurrency Comparison", "Future", "Wallets", "dApps", "Smart Contracts", "Ethereum 2.0", "Gas Fees"], tags => console.log(tags))
 
+//! read Tags
+//readTags(tags => console.log(tags))
+
 //! creazione Categories
 //createCategories(["Crypto", "Finance", "Economics", "Commodity"], categories => console.log(categories))
+
+//! read Categories
+readCategories(categories => console.log(categories))
